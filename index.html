@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tamyr Coffee — Fresh Roast. Honest Taste. New Year 2027</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body ontouchstart="">
+  <input type="checkbox" id="theme-toggle" class="sr-only" aria-label="Dark theme">
+  <input type="checkbox" id="burger-toggle" class="sr-only" aria-label="Open menu">
+
+  <header class="site-header">
+    <a class="logo" href="#top">Tamyr<span>Coffee</span></a>
+    <nav class="main-nav" aria-label="Main">
+      <label for="burger-toggle" class="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </label>
+      <ul>
+        <li><a href="#beans">Beans</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#addresses">Addresses</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="garland" aria-hidden="true"></div>
+      <div class="snow" aria-hidden="true"></div>
+      <div class="hero-text">
+        <p class="badge">New Year 2027 edition</p>
+        <h1>Fresh Roast.<br>Honest Taste</h1>
+        <p>Single-origin beans, roasted in small batches in Almaty. Winter drinks and gift bags are ready for pickup in minutes.</p>
+        <a class="cta" href="#menu">See the menu</a>
+        <p class="countdown" id="countdown">Until New Year: <strong id="days">—</strong> days</p>
+      </div>
+    </section>
+
+    <section id="winter" class="section">
+      <h2>Winter specials</h2>
+      <p class="lead">Available until 7 January, while the spruce is still up.</p>
+      <div class="grid">
+        <article tabindex="0" class="card festive">
+          <h3>Gingerbread latte</h3>
+          <p>Espresso, steamed milk, ginger, cinnamon and a little molasses.</p>
+        </article>
+        <article tabindex="0" class="card festive">
+          <h3>Spiced mulled cold brew</h3>
+          <p>Cold brew served warm with orange peel, clove and star anise.</p>
+        </article>
+        <article tabindex="0" class="card festive">
+          <h3>New Year gift bag</h3>
+          <p>250 g of the Kenya Nyeri roast, a ceramic cup and a handwritten card.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="beans" class="section">
+      <h2>Single-origin beans</h2>
+      <p class="lead">Every bag is traceable to one farm. Pick a country, check the altitude, taste the notes.</p>
+      <div class="grid">
+        <article tabindex="0" class="card">
+          <h3>Ethiopia Guji</h3>
+          <dl>
+            <dt>Origin</dt><dd>Ethiopia</dd>
+            <dt>Altitude</dt><dd>2100 m</dd>
+            <dt>Flavor</dt><dd>Blueberry, jasmine, lemon tea</dd>
+          </dl>
+        </article>
+        <article tabindex="0" class="card">
+          <h3>Colombia Huila</h3>
+          <dl>
+            <dt>Origin</dt><dd>Colombia</dd>
+            <dt>Altitude</dt><dd>1750 m</dd>
+            <dt>Flavor</dt><dd>Red apple, caramel, cocoa</dd>
+          </dl>
+        </article>
+        <article tabindex="0" class="card">
+          <h3>Kenya Nyeri</h3>
+          <dl>
+            <dt>Origin</dt><dd>Kenya</dd>
+            <dt>Altitude</dt><dd>1850 m</dd>
+            <dt>Flavor</dt><dd>Blackcurrant, grapefruit, brown sugar</dd>
+          </dl>
+        </article>
+        <article tabindex="0" class="card">
+          <h3>Brazil Cerrado</h3>
+          <dl>
+            <dt>Origin</dt><dd>Brazil</dd>
+            <dt>Altitude</dt><dd>1100 m</dd>
+            <dt>Flavor</dt><dd>Hazelnut, milk chocolate</dd>
+          </dl>
+        </article>
+        <article tabindex="0" class="card">
+          <h3>Guatemala Antigua</h3>
+          <dl>
+            <dt>Origin</dt><dd>Guatemala</dd>
+            <dt>Altitude</dt><dd>1600 m</dd>
+            <dt>Flavor</dt><dd>Dark chocolate, orange peel</dd>
+          </dl>
+        </article>
+        <article tabindex="0" class="card">
+          <h3>Rwanda Nyamasheke</h3>
+          <dl>
+            <dt>Origin</dt><dd>Rwanda</dd>
+            <dt>Altitude</dt><dd>1900 m</dd>
+            <dt>Flavor</dt><dd>Plum, honey, black tea</dd>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <section id="menu" class="section">
+      <h2>Express pre-order</h2>
+      <p class="lead">Order ahead and skip the holiday queue.</p>
+      <form class="order" action="#" method="post">
+        <label>Item
+          <select name="item" required>
+            <option value="">Choose a drink</option>
+            <option>Espresso</option>
+            <option>Flat white</option>
+            <option>V60 pour-over</option>
+            <option>Cold brew</option>
+            <option>Gingerbread latte</option>
+            <option>Spiced mulled cold brew</option>
+            <option>New Year gift bag</option>
+            <option>Beans, 250 g bag</option>
+          </select>
+        </label>
+        <label>Pickup time
+          <input type="time" name="pickup" required>
+        </label>
+        <label>Name
+          <input type="text" name="name" placeholder="Your name" required minlength="2">
+        </label>
+        <label>Phone
+          <input type="tel" name="phone" placeholder="+7 700 000 00 00" pattern="\+?[0-9 ]{10,16}" required>
+        </label>
+        <label>Email
+          <input type="email" name="email" placeholder="you@example.com" required>
+        </label>
+        <button type="submit" class="cta">Place order</button>
+      </form>
+    </section>
+
+    <section id="addresses" class="section">
+      <h2>Addresses</h2>
+      <p class="lead">Almaty, Dostyk Ave 120 &middot; Almaty, Furmanov St 45</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <nav aria-label="Footer">
+      <a href="#beans">Beans</a>
+      <a href="#menu">Menu</a>
+      <a href="#addresses">Addresses</a>
+    </nav>
+    <section>
+      <h2>Opening hours</h2>
+      <p>Mon–Fri 08:00–21:00<br>Sat–Sun 09:00–22:00<br>31 Dec: until 18:00<br>1 Jan: closed</p>
+    </section>
+    <section>
+      <h2>Follow us</h2>
+      <p><a href="https://instagram.com">Instagram</a> &middot; <a href="https://t.me">Telegram</a></p>
+    </section>
+    <label for="theme-toggle" class="theme-btn">Switch theme</label>
+    <small>Happy New Year! &copy; 2026 Tamyr Coffee. All rights reserved. Prices include VAT.</small>
+  </footer>
+  <script>
+    (function () {
+      var el = document.getElementById("days");
+      var now = new Date();
+      var ny = new Date(now.getFullYear() + 1, 0, 1);
+      el.textContent = Math.ceil((ny - now) / 86400000);
+    })();
+  </script>
+</body>
+</html>

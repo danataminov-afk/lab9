@@ -1,0 +1,224 @@
+:root{
+  --bg:#f1f5f4; --surface:#ffffff; --ink:#14261e; --muted:#46584f;
+  --accent:#b3202a; --on-accent:#ffffff; --line:#c6d3cd;
+  --gold:#e0b04a; --pine:#0f3d2e;
+  --foot-bg:#0f3d2e; --foot-ink:#f1f5f4;
+}
+body:has(#theme-toggle:checked){
+  --bg:#1e130d; --surface:#2c1d14; --ink:#eadbc8; --muted:#bfa68b;
+  --accent:#d98c4a; --on-accent:#1e130d; --line:#4a3425;
+  --gold:#e8c26a; --pine:#140c08;
+  --foot-bg:#140c08; --foot-ink:#eadbc8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:100%}
+body{
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.6;
+  padding-bottom:4.5rem;overflow-x:hidden;
+}
+h1,h2,h3,.logo{font-family:Georgia,"Times New Roman",serif;line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:0.2rem solid var(--accent);outline-offset:0.2rem}
+.sr-only{position:absolute;width:0.0625rem;height:0.0625rem;overflow:hidden;clip:rect(0 0 0 0)}
+
+/* Header / Nav — mobile first */
+.site-header{display:flex;justify-content:space-between;align-items:center;padding:1rem 5%}
+.logo{font-size:1.5rem;font-weight:700;text-decoration:none}
+.logo span{color:var(--accent);margin-left:0.3em}
+.main-nav{position:fixed;left:0;right:0;bottom:0;z-index:10;background:var(--surface);border-top:0.0625rem solid var(--line);padding:0.5rem 5%}
+.main-nav ul{list-style:none;display:none;flex-direction:column;gap:0.25rem;padding-bottom:0.5rem}
+#burger-toggle:checked ~ .site-header .main-nav ul{display:flex}
+.main-nav ul a{display:block;padding:0.75rem 0;text-decoration:none;font-size:1.1rem}
+.burger{display:flex;flex-direction:column;gap:0.3rem;width:3rem;height:3rem;padding:0.9rem 0.75rem;cursor:pointer;margin-left:auto}
+.burger span{height:0.15rem;background:var(--ink);border-radius:1rem}
+#burger-toggle:focus-visible ~ .site-header .burger{outline:0.2rem solid var(--accent)}
+
+/* Hero */
+.hero{
+  position:relative;overflow:hidden;
+  min-height:85vh;display:flex;align-items:flex-end;padding:4rem 5% 3rem;color:#f4e9dc;
+  background:
+    radial-gradient(ellipse 60% 40% at 75% 30%,rgba(217,140,74,.55),transparent 70%),
+    radial-gradient(ellipse 40% 30% at 20% 80%,rgba(120,60,30,.7),transparent 70%),
+    linear-gradient(160deg,#2b1a12,#0f0907);
+}
+.hero-text{position:relative;z-index:2;max-width:40rem}
+.hero h1{font-size:clamp(2.5rem,9vw,5.5rem);margin-bottom:1rem}
+.hero p{font-size:1.1rem;margin-bottom:2rem;max-width:32rem}
+.hero .badge{display:inline-block;margin-bottom:1rem;padding:0.35rem 1rem;border:0.0625rem solid var(--gold);border-radius:2rem;color:var(--gold);font-size:0.95rem;margin-bottom:1rem}
+.hero .countdown{margin:1.5rem 0 0;font-size:1rem}
+.hero .countdown strong{color:var(--gold);font-size:1.6rem;font-family:Georgia,serif}
+.cta{
+  display:inline-block;padding:0.9rem 2rem;border:0;border-radius:0.25rem;cursor:pointer;
+  background:var(--accent);color:var(--on-accent);font:inherit;font-weight:700;text-decoration:none;
+}
+.hero .cta{background:#d98c4a;color:#1e130d}
+.cta:hover{filter:brightness(1.1)}
+
+/* Sections */
+.section{padding:3rem 5%;max-width:75rem;margin:0 auto}
+.section h2{font-size:2rem;margin-bottom:0.5rem}
+.lead{color:var(--muted);margin-bottom:2rem;max-width:40rem}
+
+/* Grid */
+.grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+.card{background:var(--surface);border:0.0625rem solid var(--line);padding:1.5rem;border-radius:0.25rem}
+.card h3{font-size:1.4rem;margin-bottom:0.75rem}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:0.35rem 1rem}
+.card dt{color:var(--muted)}
+.card dd{font-weight:600}
+
+/* Form */
+.order{display:grid;grid-template-columns:1fr;gap:1.25rem;background:var(--surface);border:0.0625rem solid var(--line);padding:1.5rem;border-radius:0.25rem}
+.order label{display:flex;flex-direction:column;gap:0.35rem;font-weight:600}
+.order input,.order select{
+  font:inherit;padding:0.75rem;border:0.125rem solid var(--line);border-radius:0.25rem;
+  background:var(--bg);color:var(--ink);
+}
+/* pure CSS validation */
+.order input:required:invalid:not(:placeholder-shown),
+.order input[type="time"]:required:invalid{border-color:#c0392b}
+.order input:required:valid,
+.order select:required:valid{border-color:#2e8b57}
+.order input:focus,.order select:focus{border-color:var(--accent)}
+.order .cta{align-self:end}
+
+/* Footer */
+.site-footer{
+  display:grid;grid-template-columns:1fr;gap:1.5rem;padding:3rem 5%;
+  background:var(--foot-bg);color:var(--foot-ink);
+}
+.site-footer nav{display:flex;gap:1.25rem;flex-wrap:wrap}
+.site-footer h2{font-size:1.1rem;margin-bottom:0.5rem}
+.theme-btn{
+  justify-self:start;padding:0.75rem 1.5rem;border:0.125rem solid var(--foot-ink);
+  border-radius:0.25rem;cursor:pointer;font-weight:600;
+}
+.theme-btn:hover{background:var(--foot-ink);color:var(--foot-bg)}
+#theme-toggle:focus-visible ~ footer .theme-btn{outline:0.2rem solid #d98c4a;outline-offset:0.2rem}
+.site-footer small{opacity:.75}
+
+/* Tablet */
+@media (min-width:40em){
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .order{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Desktop */
+@media (min-width:1024px){
+  body{padding-bottom:0}
+  .site-header{position:sticky;top:0;z-index:10;background:var(--bg);border-bottom:0.0625rem solid var(--line)}
+  .main-nav{position:static;background:none;border:0;padding:0}
+  .burger{display:none}
+  .main-nav ul{display:flex;flex-direction:row;gap:2rem;padding:0}
+  .main-nav ul a{padding:0.5rem 0}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .site-footer{grid-template-columns:repeat(4,auto);justify-content:space-between;align-items:start}
+  .site-footer small{grid-column:1 / -1}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* New Year decorations */
+.garland{
+  position:absolute;top:0;left:0;right:0;height:2.5rem;z-index:1;
+  background:
+    radial-gradient(circle at 50% 1.25rem,#e0b04a 0.4rem,transparent 0.45rem) 0 0/4rem 2.5rem,
+    radial-gradient(circle at 50% 1.25rem,#d33a3a 0.4rem,transparent 0.45rem) 1rem 0/4rem 2.5rem,
+    radial-gradient(circle at 50% 1.25rem,#3fa56b 0.4rem,transparent 0.45rem) 2rem 0/4rem 2.5rem,
+    radial-gradient(circle at 50% 1.25rem,#5aa9e6 0.4rem,transparent 0.45rem) 3rem 0/4rem 2.5rem;
+  border-top:0.2rem solid #0b1f17;
+  animation:twinkle 2.4s ease-in-out infinite alternate;
+}
+@keyframes twinkle{from{opacity:.55}to{opacity:1}}
+.snow{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(circle,#fff 0.1rem,transparent 0.12rem) 0 0/5rem 5rem,
+    radial-gradient(circle,#fff 0.15rem,transparent 0.17rem) 1.5rem 2rem/8rem 8rem,
+    radial-gradient(circle,#fff 0.08rem,transparent 0.1rem) 3rem 1rem/3.5rem 3.5rem;
+  opacity:.8;
+  animation:fall 14s linear infinite;
+}
+@keyframes fall{to{background-position:0.5rem 5rem,2rem 10rem,3.5rem 3.5rem}}
+.festive{border-top:0.3rem solid var(--accent);position:relative}
+.festive::after{content:"";position:absolute;top:-0.3rem;right:1rem;width:0.6rem;height:0.6rem;background:var(--gold);border-radius:50%}
+.festive p{color:var(--muted)}
+#winter{padding-top:3rem}
+@media (prefers-reduced-motion:reduce){.garland,.snow{animation:none}}
+
+/* Cards styled as buttons (winter specials + beans) */
+.card{
+  cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;
+  border:0.125rem solid var(--ink);border-radius:0.75rem;
+  box-shadow:0 0.3rem 0 var(--ink);
+  transition:transform .12s ease,box-shadow .12s ease,background-color .12s ease,color .12s ease;
+}
+.card:hover{
+  transform:translateY(-0.15rem);box-shadow:0 0.45rem 0 var(--ink);
+  background:var(--accent);color:var(--on-accent);
+}
+.card:hover dt,.card:hover p{color:inherit;opacity:.85}
+.card:active{
+  transform:translateY(0.3rem);box-shadow:0 0 0 var(--ink);
+}
+.festive{border-top:0.125rem solid var(--ink)}
+.festive::after{top:0.75rem;right:0.75rem}
+.card:hover.festive::after{background:var(--on-accent)}
+@media (prefers-reduced-motion:reduce){.card{transition:none}}
+
+/* Dynamic hover on button-cards */
+@media (hover:hover){
+  .card{position:relative;overflow:hidden;isolation:isolate}
+  .card::before{
+    content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;z-index:-1;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);
+    transform:skewX(-20deg);pointer-events:none;
+  }
+  .card:hover{
+    transform:translateY(-0.4rem) scale(1.04) rotate(-1deg);
+    box-shadow:0 0.8rem 0 var(--ink),0 1.5rem 2.5rem rgba(0,0,0,.25);
+    transition-timing-function:cubic-bezier(.34,1.56,.64,1);
+  }
+  .card:nth-child(even):hover{transform:translateY(-0.4rem) scale(1.04) rotate(1deg)}
+  .card:hover::before{animation:shine .7s ease}
+  .card h3,.card dl,.card p{transition:transform .25s ease,letter-spacing .25s ease}
+  .card:hover h3{transform:translateX(0.4rem);letter-spacing:.02em}
+  .card:hover dl,.card:hover p{transform:translateX(0.25rem)}
+  .festive:hover::after{animation:spin-pulse 1s ease infinite}
+}
+.card:active{transform:translateY(0.3rem) scale(.97) rotate(0)!important;box-shadow:0 0 0 var(--ink)!important}
+@keyframes shine{to{left:130%}}
+@keyframes spin-pulse{
+  0%{transform:scale(1) rotate(0)}
+  50%{transform:scale(1.6) rotate(180deg)}
+  100%{transform:scale(1) rotate(360deg)}
+}
+@media (prefers-reduced-motion:reduce){
+  .card:hover,.card:nth-child(even):hover{transform:none}
+  .card:hover::before,.festive:hover::after{animation:none}
+  .card:hover h3,.card:hover dl,.card:hover p{transform:none}
+}
+
+/* Touch + keyboard: same effects on tap/focus as on hover */
+.card:focus{
+  outline:none;
+  position:relative;overflow:hidden;isolation:isolate;
+  background:var(--accent);color:var(--on-accent);
+  transform:translateY(-0.4rem) scale(1.04) rotate(-1deg);
+  box-shadow:0 0.8rem 0 var(--ink),0 1.5rem 2.5rem rgba(0,0,0,.25);
+  transition-timing-function:cubic-bezier(.34,1.56,.64,1);
+}
+.card:nth-child(even):focus{transform:translateY(-0.4rem) scale(1.04) rotate(1deg)}
+.card:focus dt,.card:focus p{color:inherit;opacity:.85}
+.card:focus::before{animation:shine .7s ease}
+.card:focus h3{transform:translateX(0.4rem);letter-spacing:.02em}
+.card:focus dl,.card:focus p{transform:translateX(0.25rem)}
+.card:focus.festive::after{background:var(--on-accent);animation:spin-pulse 1s ease infinite}
+.card:focus-visible{outline:0.2rem solid var(--gold);outline-offset:0.25rem}
+.card:active{transform:translateY(0.3rem) scale(.97) rotate(0)!important;box-shadow:0 0 0 var(--ink)!important}
+@media (prefers-reduced-motion:reduce){
+  .card:focus,.card:nth-child(even):focus{transform:none}
+  .card:focus::before,.card:focus.festive::after{animation:none}
+  .card:focus h3,.card:focus dl,.card:focus p{transform:none}
+}
